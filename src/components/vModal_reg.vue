@@ -149,7 +149,7 @@
                         localStorage.setItem('loginData', JSON.stringify(newData));
                     }
                     this.$refs.registerForm.reset();
-                    this.$emit('closeRegister', false);
+                    this.$emit('closeRegister');
                     // имитировать событие в родителе
                     this.$emit('refreshText');
                     this.$emit('refreshData');
@@ -157,16 +157,13 @@
                 else alert('Please, required to fill all of the fields');
             },
             closeRegisterModal() {
-                this.$emit('closeRegister', false);
+                this.$emit('closeRegister');
             }
         },
         computed: {
             findModalRegister() {
                 return this.modalRegister = this.bool;
             }
-        },
-        mounted() {
-            console.log('localStorage', localStorage);
         }
     }
 </script>

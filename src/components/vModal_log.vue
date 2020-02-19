@@ -89,10 +89,9 @@
                             }
                         });
                         if(result) {
-                            // alert('You are successfully logged in!\n\nCurrent user:\nfullname: ' +  this.getFullName + '\n' + 'email: ' +  this.currentUser.email);
                             localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
                             localStorage.setItem('loginState', JSON.stringify(true));
-                            this.$emit('closeLogin', false);
+                            this.$emit('closeLogin');
                             this.$emit('refreshData');
                         }
                         else {
@@ -102,25 +101,19 @@
                     } else {
                         // if storage data empty
                         this.$refs.loginForm.reset();
-                        this.$emit('closeLogin', false);
+                        this.$emit('closeLogin');
                         alert('LocalStorage is empty, "save data" or register new user!');
                     }
                 } else alert('Please, required to fill all of the fields.');
             },
             closeLoginModal() {
-                this.$emit('closeLogin', false);
+                this.$emit('closeLogin');
             }
         },
         computed: {
             findModalLogin() {
                 return this.modalLogin = this.bool;
-            },
-            getFullName() {
-                return this.currentUser.firstName + ' ' + this.currentUser.lastName;
-            },
-        },
-        mounted() {
-            console.log('localStorage', localStorage);
+            }
         }
     }
 </script>

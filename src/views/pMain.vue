@@ -76,12 +76,12 @@
         }),
         methods: {
             loginUser() {
-                this.$emit('openLogin', true);
+                this.$emit('openLogin');
             },
             registerUser() {
-                this.$emit('openRegister', true);
+                this.$emit('openRegister');
             },
-            logoutUser(){
+            logoutUser() {
                 localStorage.removeItem('currentUser');
                 localStorage.removeItem('loginState');
                 this.isLogin = false;
@@ -92,10 +92,10 @@
                 this.textField = 'localStorage is empty';
                 console.clear();
             },
-            getCurrentText() {
+            getLocalStorageString() {
                 this.textField = JSON.parse(localStorage.getItem('loginData'));
             },
-            refreshData(){
+            refreshData() {
                 this.isLogin = JSON.parse(localStorage.getItem('loginState'));
                 this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
                 this.isData = JSON.parse(localStorage.getItem('loginData'));

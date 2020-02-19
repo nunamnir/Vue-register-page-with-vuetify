@@ -35,20 +35,20 @@
             boolLogin: false
         }),
         methods: {
-            openLogin(bool) {
-                this.boolLogin = bool;
+            openLogin() {
+                this.boolLogin = true;
             },
-            closeLogin(result) {
-                this.boolLogin = result;
+            closeLogin() {
+                this.boolLogin = false;
             },
-            openRegister(bool) {
-                this.boolRegister = bool;
+            openRegister() {
+                this.boolRegister = true;
             },
-            closeRegister(result) {
-                this.boolRegister = result;
+            closeRegister() {
+                this.boolRegister = false;
             },
             refreshText() {
-                this.$refs.pMain.getCurrentText();
+                this.$refs.pMain.getLocalStorageString();
             },
             refreshData() {
                 this.$refs.pMain.refreshData();
